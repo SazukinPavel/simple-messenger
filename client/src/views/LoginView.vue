@@ -21,11 +21,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import LoginDto from "@/types/dto/Login.dto";
+import { useRouter } from "vue-router";
 
 const loginDto = ref<LoginDto>({ username: "" });
+const router = useRouter();
 
 function onSubmit() {
   console.log(loginDto);
+  router.push("/messages");
   onReset();
 }
 

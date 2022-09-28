@@ -10,7 +10,6 @@ app.use(store);
 app.use(router);
 
 components.map((c) => {
-  console.log(c);
   app.component(c.name, c);
 });
 
