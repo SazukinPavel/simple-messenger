@@ -1,9 +1,11 @@
 import {
+  MessageBody,
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
+  WsResponse,
 } from '@nestjs/websockets';
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway({ cors: true })
 export class MessagesGateway {
@@ -11,8 +13,13 @@ export class MessagesGateway {
   server: Server;
 
   @SubscribeMessage('message')
-  handleMessage(client: any, payload: any) {
-    console.log(payload);
-    this.server.emit('event', payload);
+  handleMessage(@MessageBody() data: string): WsResponse<string> {
+    console.log(data);
+    const event = 'message';
+    return { event, data };
+  }
+
+  handleConnection(socket: Socket) {
+    console.log(socket.handshake.query);
   }
 }
