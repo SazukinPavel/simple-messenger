@@ -22,12 +22,14 @@
 import { ref } from "vue";
 import LoginDto from "@/types/dto/Login.dto";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const loginDto = ref<LoginDto>({ username: "" });
 const router = useRouter();
+const store = useStore();
 
 function onSubmit() {
-  console.log(loginDto);
+  store.dispatch("auth/login", loginDto.value);
   router.push("/messages");
   onReset();
 }
