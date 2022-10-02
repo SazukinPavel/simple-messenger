@@ -1,18 +1,29 @@
 <template>
   <div class="messages">
-    <message-card
-      v-for="message in props.messages"
-      :key="message.text"
-      :message="message"
-    />
+    <template v-for="message in props.messages">
+      <message-card
+        v-if="!message.isSystem"
+        :key="message.id"
+        :message="message"
+      />
+      <system-message-card v-else :key="message.id" :message="message" />
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
 import MessageCard from "@/components/Messages/MessageCard.vue";
+import SystemMessageCard from "@/components/Messages/SystemMessageCard.vue";
 
 const props = defineProps(["messages"]);
 </script>
 
-<style scoped></style>
+<style scoped>
+.messages {
+  min-height: 70vh;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #2474c7;
+}
+</style>

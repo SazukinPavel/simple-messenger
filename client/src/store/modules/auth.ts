@@ -18,6 +18,9 @@ export const AuthModule: Module<AuthState, any> = {
     getUser(state) {
       return state.user;
     },
+    isAuth(state) {
+      return state.isAuth;
+    },
   },
   mutations: {
     setUser(state, user: User) {
