@@ -2,16 +2,12 @@ import {
   MessageBody,
   OnGatewayConnection,
   OnGatewayDisconnect,
-  OnGatewayInit,
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
-  WsResponse,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import MessageEventTypes from '../../types/MessageEventTypes';
-import Message from '../../types/Message';
-import { v4 } from 'uuid';
+import { Message, MessageEventTypes } from 'src/types';
 
 @WebSocketGateway({ cors: true })
 export class MessagesGateway
@@ -26,7 +22,6 @@ export class MessagesGateway
     const message: Message = {
       text: data.text._value,
       owner: data.owner._value,
-      id: v4(),
     };
     this.server.emit(event, message);
   }
@@ -36,7 +31,6 @@ export class MessagesGateway
     const message: Message = {
       text: `User ${username} join chat`,
       isSystem: true,
-      id: v4(),
     };
     this.server.emit(MessageEventTypes.UserJoin, message);
   }
@@ -46,7 +40,6 @@ export class MessagesGateway
     const message: Message = {
       text: `User ${username} leave chat`,
       isSystem: true,
-      id: v4(),
     };
     this.server.emit(MessageEventTypes.UserLeave, message);
   }
