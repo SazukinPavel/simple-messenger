@@ -14,18 +14,23 @@ export default function () {
   );
 
   ws.value.on(MessageEventTypes.NewMessage, (data) => {
-    const message: Message = data as Message;
-    store.dispatch("message/addMessage", message);
+    const message = data as Message;
+    store.commit("message/addMessage", message);
   });
 
   ws.value.on(MessageEventTypes.UserJoin, (data) => {
-    const message: Message = data as Message;
-    store.dispatch("message/addMessage", message);
+    const message = data as Message;
+    store.commit("message/addMessage", message);
   });
 
   ws.value.on(MessageEventTypes.UserLeave, (data) => {
-    const message: Message = data as Message;
-    store.dispatch("message/addMessage", message);
+    const message = data as Message;
+    store.commit("message/addMessage", message);
+  });
+
+  ws.value.on(MessageEventTypes.GetOldMessages, (data) => {
+    const messages = data as Message[];
+    store.commit("message/setMessages", messages);
   });
 
   ws.value.on("connect", () => {
@@ -36,10 +41,10 @@ export default function () {
     console.log(ws.value.id);
   });
 
-  function sendMessage(text: string) {
+  const sendMessage = (text: string) => {
     const message: Message = { text, owner: user };
     ws.value.emit("message", message);
-  }
+  };
 
   return {
     sendMessage,

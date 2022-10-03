@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs, defineProps } from "vue";
+import { defineProps } from "vue";
 
 const props = defineProps(["message"]);
 </script>

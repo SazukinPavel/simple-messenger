@@ -4,5 +4,5 @@ export interface Message {
   text: string;
   owner: User;
   isSystem?: boolean;
-  id?: string;
+  _id?: string;
 }

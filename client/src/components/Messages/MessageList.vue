@@ -6,7 +6,7 @@
         :key="message.id"
         :message="message"
       />
-      <system-message-card v-else :key="message.id" :message="message" />
+      <system-message-card v-else :key="message._id" :message="message" />
     </template>
   </div>
 </template>

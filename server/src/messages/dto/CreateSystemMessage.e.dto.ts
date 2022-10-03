@@ -1,3 +1,3 @@
-export default class CreateSystemMessageDto{
-    text:string
+export default class CreateSystemMessageDto {
+  text: string;
 }

@@ -1,7 +1,4 @@
-import MessageEventTypes from "./MessageEventTypes"
-import User from "./User"
+import MessageEventTypes from './MessageEventTypes';
+import User from './User';
 
-export {
-    MessageEventTypes,
-    User,
-}
+export { MessageEventTypes, User };

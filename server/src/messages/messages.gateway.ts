@@ -15,8 +15,7 @@ import { MessagesService } from './messages.service';
 export class MessagesGateway
   implements OnGatewayConnection, OnGatewayDisconnect
 {
-
-  constructor(private readonly messagesService:MessagesService){}
+  constructor(private readonly messagesService: MessagesService) {}
 
   @WebSocketServer()
   server: Server;
@@ -29,34 +28,34 @@ export class MessagesGateway
       owner: data.owner._value,
     };
 
-    await this.messagesService.addMessage(message)
+    await this.messagesService.addMessage(message);
 
     this.server.emit(event, message);
   }
 
-  async handleConnection(client: Socket){
+  async handleConnection(client: Socket) {
     const username = client.handshake.query.username;
 
-    const messages=this.messagesService.getAll()
-    this.server.emit(MessageEventTypes.GetOldMessages,messages)
-    
+    const messages = this.messagesService.getAll();
+    this.server.emit(MessageEventTypes.GetOldMessages, messages);
+
     const message: CreateSystemMessageDto = {
       text: `User ${username} join chat`,
     };
 
-    await this.messagesService.addSystemMessaage(message)
+    await this.messagesService.addSystemMessaage(message);
 
     this.server.emit(MessageEventTypes.UserJoin, message);
   }
 
-  async handleDisconnect(client: Socket){
+  async handleDisconnect(client: Socket) {
     const username = client.handshake.query.username;
-    
+
     const message: CreateSystemMessageDto = {
       text: `User ${username} leave chat`,
     };
 
-    await this.messagesService.addSystemMessaage(message)
+    await this.messagesService.addSystemMessaage(message);
 
     this.server.emit(MessageEventTypes.UserLeave, message);
   }

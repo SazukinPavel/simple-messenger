@@ -1,7 +1,4 @@
-import CreateMessageDto from "./CreateMessage.dto"
-import CreateSystemMessageDto from "./CreateSystemMessage.e.dto"
+import CreateMessageDto from './CreateMessage.dto';
+import CreateSystemMessageDto from './CreateSystemMessage.e.dto';
 
-export {
-    CreateMessageDto,
-    CreateSystemMessageDto
-}
+export { CreateMessageDto, CreateSystemMessageDto };

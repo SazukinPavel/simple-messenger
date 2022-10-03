@@ -7,11 +7,7 @@ const initialState: MessageState = { messages: [] };
 export const MessageModule: Module<MessageState, any> = {
   namespaced: true,
   state: initialState,
-  actions: {
-    addMessage({ commit }, message: Message) {
-      commit("addMessage", message);
-    },
-  },
+  actions: {},
   getters: {
     getMessages(state) {
       return state.messages;
@@ -21,5 +17,6 @@ export const MessageModule: Module<MessageState, any> = {
     addMessage(state, message: Message) {
       state.messages.push(message);
     },
+    setMessages(state, message: Message[]) {},
   },
 };

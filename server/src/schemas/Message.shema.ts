@@ -10,11 +10,14 @@ export class Message {
   @Prop()
   username: string;
 
-  @Prop({required:true})
+  @Prop({ required: true })
   text: string;
 
-  @Prop({default:false})
-  isSystem:boolean
+  @Prop({ default: false })
+  isSystem: boolean;
+
+  @Prop({ default: Date.now() })
+  createdAt: Date;
 }
 
 export const MessageSchema = SchemaFactory.createForClass(Message);
