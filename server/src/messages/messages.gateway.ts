@@ -7,7 +7,7 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { Message, MessageEventTypes } from 'src/types';
+import { MessageEventTypes } from 'src/types';
 import { CreateMessageDto, CreateSystemMessageDto } from './dto';
 import { MessagesService } from './messages.service';
 
@@ -42,7 +42,6 @@ export class MessagesGateway
     
     const message: CreateSystemMessageDto = {
       text: `User ${username} join chat`,
-      isSystem: true,
     };
 
     await this.messagesService.addSystemMessaage(message)

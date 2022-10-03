@@ -2,7 +2,7 @@ enum MessageEventTypes {
   UserJoin = 'onUserJoin',
   UserLeave = 'onUserLeave',
   NewMessage = 'onNewMessage',
-  GetOldMessage='onGetOldMessage'
+  GetOldMessages='onGetOldMessages'
 }
 
 export default MessageEventTypes;
