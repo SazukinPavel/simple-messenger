@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { defineProps } from "vue";
 import MessageCard from "@/components/Messages/MessageCard.vue";
 import SystemMessageCard from "@/components/Messages/SystemMessageCard.vue";

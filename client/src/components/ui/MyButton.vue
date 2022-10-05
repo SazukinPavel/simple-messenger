@@ -1,5 +1,7 @@
 <template>
-  <button class="my-button"><slot></slot></button>
+  <button class="my-button">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -8,7 +10,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .my-button {
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
@@ -18,6 +20,7 @@ export default {
   border-radius: 0.5rem;
   transition: all 0.5s;
   box-shadow: 0.05rem 0.1rem 0.2rem #1461a7;
+
   &:hover,
   :focus {
     border: #3e84c8 0.1rem solid;

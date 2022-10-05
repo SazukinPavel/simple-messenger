@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import SendMessage from "@/components/Messages/SendMessage.vue";
 import MessageList from "@/components/Messages/MessageList.vue";
 import { useChatSocket, useRedirectTo } from "@/hooks";

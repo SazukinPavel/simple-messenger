@@ -36,7 +36,7 @@ export class MessagesGateway
   async handleConnection(client: Socket) {
     const username = client.handshake.query.username;
 
-    const messages = this.messagesService.getAll();
+    const messages = await this.messagesService.getAll();
     this.server.emit(MessageEventTypes.GetOldMessages, messages);
 
     const message: CreateSystemMessageDto = {

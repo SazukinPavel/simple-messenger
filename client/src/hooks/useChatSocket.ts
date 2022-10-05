@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { io } from "socket.io-client";
 import { useStore } from "vuex";
 import { Message } from "@/types/Message";
@@ -42,7 +42,7 @@ export default function () {
   });
 
   const sendMessage = (text: string) => {
-    const message: Message = { text, owner: user };
+    const message: any = { text, owner: user };
     ws.value.emit("message", message);
   };
 

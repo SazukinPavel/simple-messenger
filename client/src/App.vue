@@ -24,6 +24,7 @@ a {
 </style>
 <script>
 import MyLayout from "@/components/ui/MyLayout";
+
 export default {
   components: { MyLayout },
 };

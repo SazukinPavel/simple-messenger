@@ -4,21 +4,21 @@
     <form @submit.prevent="onSubmit">
       <label>
         Username:
-        <input type="text" v-model="loginDto.username" />
+        <input v-model="loginDto.username" type="text" />
       </label>
       <label>
         Password:
-        <input type="text" v-model="loginDto.username" />
+        <input v-model="loginDto.username" type="text" />
       </label>
       <div class="buttons">
-        <my-button @click="onReset" type="button">Reset</my-button>
+        <my-button type="button" @click="onReset">Reset</my-button>
         <my-button type="submit">Login</my-button>
       </div>
     </form>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
 import LoginDto from "@/types/dto/Login.dto";
 import { useRouter } from "vue-router";
@@ -39,13 +39,14 @@ function onReset() {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .login {
   margin-top: 5rem;
   border: 0.2rem solid #2474c7;
   border-radius: 0.5rem;
   width: 600px;
   padding: 4rem;
+
   h1 {
     text-align: center;
     font-size: 2rem;
@@ -53,14 +54,17 @@ function onReset() {
 
   form {
     margin: 2rem auto auto;
+
     label {
       font-size: 1.2rem;
+
       input {
         margin-top: 0.3rem;
         font-size: 1.2rem;
         margin-bottom: 1rem;
       }
     }
+
     .buttons {
       margin-top: 1rem;
       display: flex;
