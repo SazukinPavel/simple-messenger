@@ -5,5 +5,18 @@ import "vuetify/styles";
 // Vuetify
 import { createVuetify } from "vuetify";
 
-export default createVuetify();
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+export default createVuetify({
+  theme: {
+    defaultTheme: "myCustomTheme",
+    themes: {
+      myCustomTheme: {
+        variables: {},
+        colors: {
+          background: "41, 0, 79",
+          surface: "41, 0, 79",
+          primary: "110, 11, 92",
+        },
+      },
+    },
+  },
+});

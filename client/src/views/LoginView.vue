@@ -1,21 +1,26 @@
 <template>
-  <div class="login center">
-    <h1>Login</h1>
-    <form @submit.prevent="onSubmit">
-      <label>
-        Username:
-        <input v-model="loginDto.username" type="text" />
-      </label>
-      <label>
-        Password:
-        <input v-model="loginDto.username" type="text" />
-      </label>
-      <div class="buttons">
-        <my-button type="button" @click="onReset">Reset</my-button>
-        <my-button type="submit">Login</my-button>
-      </div>
-    </form>
-  </div>
+  <v-container fluid fill-height align-center justify-center md4 class="login">
+    <v-card class="elevation-12">
+      <v-toolbar dark color="primary">
+        <v-toolbar-title>Login form</v-toolbar-title>
+      </v-toolbar>
+      <v-card-text>
+        <v-form @submit.prevent="onSubmit">
+          <v-text-field
+            label="Username"
+            v-model="loginDto.username"
+          ></v-text-field>
+          <v-text-field label="Password"></v-text-field>
+          <div class="buttons"></div>
+        </v-form>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn variant="outlined">Reset</v-btn>
+        <v-btn variant="outlined">Login</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
@@ -41,35 +46,6 @@ function onReset() {
 
 <style lang="scss" scoped>
 .login {
-  margin-top: 5rem;
-  border: 0.2rem solid #2474c7;
-  border-radius: 0.5rem;
   width: 600px;
-  padding: 4rem;
-
-  h1 {
-    text-align: center;
-    font-size: 2rem;
-  }
-
-  form {
-    margin: 2rem auto auto;
-
-    label {
-      font-size: 1.2rem;
-
-      input {
-        margin-top: 0.3rem;
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-      }
-    }
-
-    .buttons {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-    }
-  }
 }
 </style>
