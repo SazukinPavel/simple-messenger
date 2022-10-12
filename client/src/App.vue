@@ -1,31 +1,21 @@
 <template>
-  <my-layout>
-    <router-view />
-  </my-layout>
+  <v-app>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 25px;
-  font-family: "Roboto", sans-serif;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
 
-.center {
-  width: 50%;
-  margin: auto;
-}
+export default defineComponent({
+  name: "App",
 
-a {
-  text-decoration: none;
-}
-</style>
-<script>
-import MyLayout from "@/components/ui/MyLayout";
-
-export default {
-  components: { MyLayout },
-};
+  data() {
+    return {
+      //
+    };
+  },
+});
 </script>
