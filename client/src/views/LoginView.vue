@@ -5,7 +5,7 @@
         <v-toolbar-title>Login form</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <v-form @submit.prevent="onSubmit">
+        <v-form @submit.prevent>
           <v-text-field
             label="Username"
             v-model="loginDto.username"
@@ -16,8 +16,8 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn variant="outlined">Reset</v-btn>
-        <v-btn variant="outlined">Login</v-btn>
+        <v-btn type="button" variant="outlined" @click="onReset">Reset</v-btn>
+        <v-btn variant="outlined" @click="onSubmit">Login</v-btn>
       </v-card-actions>
     </v-card>
   </v-container>

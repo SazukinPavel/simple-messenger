@@ -1,8 +1,10 @@
 <template>
-  <div class="message-card">
-    <span class="message">{{ props.message.text }}</span>
-    <span class="owner">{{ props.message.username }}</span>
-  </div>
+  <v-card class="mt-5 mx-10 rounded-xl" dark variant="outlined">
+    <v-card-text class="text-h5 font-weight-bold">
+      {{ message.text }}
+    </v-card-text>
+    <v-card-title class="text-right">{{ message.username }}</v-card-title>
+  </v-card>
 </template>
 
 <script lang="ts" setup>
@@ -11,23 +13,4 @@ import { defineProps } from "vue";
 const props = defineProps(["message"]);
 </script>
 
-<style lang="scss" scoped>
-.message-card {
-  border: 0.1rem solid #2474c7;
-  border-radius: 0.5rem;
-  display: flex;
-  padding: 0.5rem;
-  justify-content: space-between;
-  margin: 0.5rem;
-
-  span.owner {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-  }
-
-  span.message {
-    margin-left: 2rem;
-    font-size: 1.5rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

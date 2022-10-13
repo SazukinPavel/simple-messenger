@@ -1,8 +1,13 @@
 <template>
-  <div class="send-message">
-    <input v-model="newMessage" type="text" />
-    <my-button @click="send">Send</my-button>
-  </div>
+  <v-row class="mt-5 mx-10">
+    <v-text-field
+      clearable
+      label="new message"
+      variant="outlined"
+      v-model="newMessage"
+    ></v-text-field>
+    <v-btn @click="send">Send</v-btn>
+  </v-row>
 </template>
 
 <script lang="ts" setup>
@@ -15,18 +20,9 @@ const newMessage = ref("");
 function send() {
   if (newMessage.value) {
     emit("newMessage", newMessage);
+    newMessage.value = "";
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.send-message {
-  display: flex;
-  justify-content: space-between;
-
-  input {
-    width: 85%;
-    font-size: 1.5rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="center">
+  <v-container class="center">
     <message-list :messages="messages" />
     <SendMessage @newMessage="sendMessage" />
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts" setup>

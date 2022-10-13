@@ -1,7 +1,9 @@
 <template>
-  <div class="system-message-card">
-    <span>{{ props.message.text }}</span>
-  </div>
+  <v-card class="mt-5 mx-10 rounded-xl" dark>
+    <v-card-text class="text-center text-h6">{{
+      props.message.text
+    }}</v-card-text>
+  </v-card>
 </template>
 
 <script lang="ts" setup>
@@ -10,14 +12,4 @@ import { defineProps } from "vue";
 const props = defineProps(["message"]);
 </script>
 
-<style lang="scss" scoped>
-.system-message-card {
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem 0;
-
-  span {
-    font-size: 1.5rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

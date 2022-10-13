@@ -1,5 +1,6 @@
 <template>
-  <div class="messages">
+  <p class="text-h3 font-weight-bold">Messages</p>
+  <v-card variant="outlined" class="messages" height="70vh">
     <template v-for="message in props.messages">
       <message-card
         v-if="!message.isSystem"
@@ -8,7 +9,7 @@
       />
       <system-message-card v-else :key="message._id" :message="message" />
     </template>
-  </div>
+  </v-card>
 </template>
 
 <script lang="ts" setup>
@@ -21,9 +22,7 @@ const props = defineProps(["messages"]);
 
 <style scoped>
 .messages {
-  min-height: 70vh;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border: 0.2rem solid #2474c7;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple gray;
 }
 </style>
